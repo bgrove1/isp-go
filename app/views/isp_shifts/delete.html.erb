@@ -1,0 +1,22 @@
+<% @page_title = "Delete Shift"%>
+
+<%= link_to("<< Back to List", isp_shift_path, :class => 'back-link') %>
+
+<div class="isp_shift delete">
+  <h2>Delete this Shift?</h2>
+
+  <%= form_for(@isp_shift, :method => 'delete') do |f| %>
+
+    <p>Are you sure you want to permanently delete this shift?</p>
+    <p><strong>Warning: Action cannot be reversed</strong></p>
+
+    <p class="reference-name"><%= f.object.in_store_promoter_id %></p>
+    <p class="reference-name"><%= f.object.date %></p>
+    <p class="reference-name"><%= f.object.store_number %></p>
+
+    <div class="form-buttons">
+      <%= f.submit("Delete Subject") %>
+    </div>
+
+  <% end %>
+</div>

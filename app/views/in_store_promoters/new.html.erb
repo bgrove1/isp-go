@@ -1,0 +1,32 @@
+<% @page_title = "New ISP"%>
+
+<%= link_to("<< Back to List", in_store_promoters_path, :class => 'back-link') %>
+
+<div class="in_store_promoters new">
+  <h2>Create In Store Promoter</h2>
+
+  <%= form_for(@in_store_promoter) do |f|%>
+    <table>
+      <tr>
+        <td>First Name:</td>
+        <td><%= f.text_field(:firstname) %></td>
+      </tr>
+      <tr>
+        <td>Last Name:</td>
+        <td><%= f.text_field(:lastname) %></td>
+      </tr>
+      <tr>
+        <td>Territory:</td>
+        <td><%= f.text_field(:territory) %></td>
+      </tr>
+      <tr>
+        <td>Leads Per Hour:</td>
+        <td><%= f.text_field(:leadsperhour) %></td>
+      </tr>
+    </table>
+    <div class="form-buttons">
+      <%= f.submit("Create InStorePromoter") %>
+    </div>
+
+  <% end %>
+</div>

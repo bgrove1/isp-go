@@ -1,0 +1,43 @@
+<% @page_title = "ISP"%>
+
+<%= link_to("<< Back to List", in_store_promoters_path, :class => 'back-link') %>
+
+<div class="in_store_promoters show">
+  <h2>Show ISP</h2>
+
+  <table summary="ISP detail view">
+    <tr>
+      <th>First Name</th>
+      <td><%= @in_store_promoter.firstname %></td>
+    </tr>
+    <tr>
+      <th>Last Name</th>
+      <td><%= @in_store_promoter.lastname %></td>
+    </tr>
+    <tr>
+      <th>territory</th>
+      <td><%= @in_store_promoter.territory %></td>
+    </tr>
+    <tr>
+      <th>Leads Per Hour</th>
+      <td><%= @in_store_promoter.leadsperhour %></td>
+    </tr>
+<%#
+    <tr>
+      <th>Total number of shifts</th>
+      <td><%= @in_store_promoter.calculate() %><%#  </td>
+    </tr>
+%>
+    <tr>
+      <th>Created</th>
+      <td><%= @in_store_promoter.created_at %></td>
+    </tr>
+    <tr>
+      <th>Updated</th>
+      <td><%= @in_store_promoter.updated_at %></td>
+    </tr>
+  </table>
+
+  
+
+</div>

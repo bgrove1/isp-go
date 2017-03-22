@@ -1,0 +1,49 @@
+<%= link_to("<< Back to List", isp_shifts_path, :class => 'back-link') %>
+
+<div class="isp_shifts show">
+  <h2>Show isp_shift</h2>
+
+  <table summary="isp_shift detail view">
+    <tr>
+      <th>ISP ID</th>
+      <td><%= @isp_shift.in_store_promoter_id %></td>
+    </tr>
+    <tr>
+      <th>Time In</th>
+      <td><%= @isp_shift.time_in %></td>
+    </tr>
+    <tr>
+      <th>Time out</th>
+      <td><%= @isp_shift.time_out %></td>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <td><%= @isp_shift.date %></td>
+    </tr>
+    <tr>
+      <th>Store Number</th>
+      <td><%= @isp_shift.store_number %></td>
+    </tr>
+    <tr>
+      <th>prospects approached</th>
+      <td><%= @isp_shift.prospects_approached %></td>
+    </tr>
+    <tr>
+      <th>presentations given</th>
+      <td><%= @isp_shift.presentations_given %></td>
+    </tr>
+    <tr>
+      <th>Leads obtained</th>
+      <td><%= @isp_shift.leads %></td>
+    </tr>
+    <tr>
+      <th>Created</th>
+      <td><%= @isp_shift.created_at %></td>
+    </tr>
+    <tr>
+      <th>Update</th>
+      <td><%= @isp_shift.updated_at %></td>
+    </tr>
+  </table>
+
+</div>

@@ -1,0 +1,31 @@
+<% @page_title = "All In Store Promoters"%>
+
+<div class="in_store_promoters index">
+  <h2>In Store Promoters</h2>
+
+  <%= link_to("Add New In Store Promoter", new_in_store_promoter_path, :class => 'action new') %>
+
+  <table class="listing" summary="In Store Promoter list">
+    <tr class="header">
+      <th>#</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>territory</th>
+      <th>leads per hour</th>
+    </tr>
+    <% @in_store_promoters.each do |in_store_promoter| %>
+    <tr>
+      <td><%= in_store_promoter.id %></td>
+      <td><%= in_store_promoter.firstname %></td>
+      <td><%= in_store_promoter.lastname %></td>
+      <td class="center"><%= in_store_promoter.territory %></td>
+      <td class="center"><%= in_store_promoter.leadsperhour %></td>
+      <td class="actions">
+        <%= link_to("Show", in_store_promoter_path(in_store_promoter), :class => 'action show') %>
+        <%= link_to("Edit", edit_in_store_promoter_path(in_store_promoter), :class => 'action edit') %>
+        <%= link_to("Delete", delete_in_store_promoter_path(in_store_promoter), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

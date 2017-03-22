@@ -1,0 +1,15 @@
+<%= link_to("<< Back to List", isp_shifts_path, :class => 'back-link') %>
+
+<div class="isp_shifts new">
+  <h2>Add A New Shift</h2>
+
+  <%= form_for(@isp_shift) do |f| %>
+
+    <%= render(:partial =>'form', :locals => {:f => f}) %>
+
+    <div class="form-buttons">
+      <%= f.submit("Add A Shift") %>
+    </div>
+
+  <% end %>
+</div>

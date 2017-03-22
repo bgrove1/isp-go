@@ -1,0 +1,37 @@
+<div class="isp_shifts index">
+  <h2>ISP Shifts</h2>
+
+  <%= link_to("Add New Shift", new_isp_shift_path, :class => 'action new') %>
+
+  <table class="listing" summary="ISP Shift list">
+    <tr class="header">
+      <th>#</th>
+      <th>in_store_promoter_id</th>
+      <th>Time In</th>
+      <th>Time Out</th>
+      <th>Date</th>
+      <th>Store Number</th>
+      <th>Prospects Approached</th>
+      <th>Presentations Given</th>
+      <th>Leads Obtained</th>
+    </tr>
+    <% @isp_shifts.each do |isp_shift| %>
+    <tr>
+      <td><%= isp_shift.id %></td>
+      <td><%= isp_shift.in_store_promoter_id %></td>
+      <td><%= isp_shift.time_in %></td>
+      <td><%= isp_shift.time_out %></td>
+      <td><%= isp_shift.date %></td>
+      <td><%= isp_shift.prospects_approached %></td>
+      <td><%= isp_shift.presentations_given %></td>
+      <td><%= isp_shift.leads %></td>
+
+      <td class="actions">
+        <%= link_to("Show", isp_shift_path(isp_shift), :class => 'action show') %>
+        <%= link_to("Edit", edit_isp_shift_path(isp_shift), :class => 'action edit') %>
+        <%= link_to("Delete", delete_isp_shift_path(isp_shift), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
