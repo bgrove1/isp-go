@@ -47,8 +47,3 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: simple_cms_production
-  username: <%= ENV['SIMPLE_CMS_DATABASE_PASSWORD'] %>
-  password: <%= ENV['SIMPLE_CMS_DATABASE_PASSWORD'] %>
