@@ -5,6 +5,16 @@
 <div class="in_store_promoters show">
   <h2>Show ISP</h2>
 
+  <br/>
+  <p>Total number of shifts: <%= @in_store_promoter.isp_shifts.size %> </p>
+  <br/>
+
+  <br/>
+  <p>Leads Per Hour: <%= @in_store_promoter.calculate_leads_per_hour %> </p>
+  <br/>
+
+
+
   <table summary="ISP detail view">
     <tr>
       <th>First Name</th>
@@ -22,12 +32,6 @@
       <th>Leads Per Hour</th>
       <td><%= @in_store_promoter.leadsperhour %></td>
     </tr>
-<%#
-    <tr>
-      <th>Total number of shifts</th>
-      <td><%= @in_store_promoter.calculate() %><%#  </td>
-    </tr>
-%>
     <tr>
       <th>Created</th>
       <td><%= @in_store_promoter.created_at %></td>
@@ -37,7 +41,5 @@
       <td><%= @in_store_promoter.updated_at %></td>
     </tr>
   </table>
-
-  
 
 </div>

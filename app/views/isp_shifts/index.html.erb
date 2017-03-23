@@ -3,9 +3,13 @@
 
   <%= link_to("Add New Shift", new_isp_shift_path, :class => 'action new') %>
 
+  <br/>
+  <p>total records: <%= @isp_shifts.size%></p>
+  <br/>
+
   <table class="listing" summary="ISP Shift list">
     <tr class="header">
-      <th>#</th>
+      <th>ISP Name</th>
       <th>in_store_promoter_id</th>
       <th>Time In</th>
       <th>Time Out</th>
@@ -17,11 +21,12 @@
     </tr>
     <% @isp_shifts.each do |isp_shift| %>
     <tr>
-      <td><%= isp_shift.id %></td>
+      <td><%= isp_shift.in_store_promoter_id %></td>
       <td><%= isp_shift.in_store_promoter_id %></td>
       <td><%= isp_shift.time_in %></td>
       <td><%= isp_shift.time_out %></td>
       <td><%= isp_shift.date %></td>
+      <td><%= isp_shift.store_number %></td>
       <td><%= isp_shift.prospects_approached %></td>
       <td><%= isp_shift.presentations_given %></td>
       <td><%= isp_shift.leads %></td>

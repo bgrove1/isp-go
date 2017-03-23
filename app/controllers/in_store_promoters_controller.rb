@@ -3,13 +3,15 @@ class InStorePromotersController < ApplicationController
   layout 'admin'
 
   before_action :confirm_logged_in
-  
+
   def index
     @in_store_promoters = InStorePromoter.sorted
   end
 
   def show
     @in_store_promoter = InStorePromoter.find(params[:id])
+    #@isp_shift = IspShift.in_store_promoter_id.find(@in_store_promoter)
+    #@isp_shift_hours_in_store = (@isp_shift.time_out-@isp_shift.time_in)/3600
   end
 
   def new
@@ -18,6 +20,7 @@ class InStorePromotersController < ApplicationController
 
   def create
     @in_store_promoter = InStorePromoter.new(in_store_promoter_params)
+    @in_store_promoter.leadsperhour = @in_store_promoter.isp_shifts.where(in_store_promoter_id: @in_store_promoter.id).average("leads_per_hour")
     if @in_store_promoter.save
       flash[:notice] = "in_store_promoter created successfully."
       redirect_to(in_store_promoters_path)
@@ -54,6 +57,7 @@ class InStorePromotersController < ApplicationController
   private
 
   def in_store_promoter_params
-    params.require(:in_store_promoter).permit(:firstname, :lastname, :territory, :leadsperhour)
+    params.require(:in_store_promoter).permit(:firstname, :lastname, :territory)
   end
+
 end

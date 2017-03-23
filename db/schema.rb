@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170321235538) do
+ActiveRecord::Schema.define(version: 20170322203553) do
 
   create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "first_name",      limit: 25
@@ -47,8 +47,9 @@ ActiveRecord::Schema.define(version: 20170321235538) do
     t.integer  "prospects_approached"
     t.integer  "presentations_given"
     t.integer  "leads"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.float    "leads_per_hour",       limit: 24
     t.index ["in_store_promoter_id"], name: "index_isp_shifts_on_in_store_promoter_id", using: :btree
   end
 

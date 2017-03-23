@@ -3,13 +3,14 @@ class IspShiftsController < ApplicationController
   layout 'admin'
 
   before_action :confirm_logged_in
-  
+
   def index
     @isp_shifts = IspShift.sorted
   end
 
   def show
     @isp_shift = IspShift.find(params[:id])
+    @isp_shift_hours_in_store = (@isp_shift.time_out-@isp_shift.time_in)/3600
   end
 
   def new
