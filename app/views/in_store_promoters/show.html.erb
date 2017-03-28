@@ -9,11 +9,6 @@
   <p>Total number of shifts: <%= @in_store_promoter.isp_shifts.size %> </p>
   <br/>
 
-  <br/>
-  <p>Leads Per Hour: <%= @in_store_promoter.calculate_leads_per_hour %> </p>
-  <br/>
-
-
 
   <table summary="ISP detail view">
     <tr>
@@ -26,11 +21,11 @@
     </tr>
     <tr>
       <th>territory</th>
-      <td><%= @in_store_promoter.territory %></td>
+      <td><%= Territory.find(@in_store_promoter.territory_id).name %></td>
     </tr>
     <tr>
       <th>Leads Per Hour</th>
-      <td><%= @in_store_promoter.leadsperhour %></td>
+      <td><%= @in_store_promoter.calculate_leads_per_hour %></td>
     </tr>
     <tr>
       <th>Created</th>

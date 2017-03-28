@@ -17,11 +17,11 @@
       </tr>
       <tr>
         <td>Territory:</td>
-        <td><%= f.text_field(:territory) %></td>
+        <td><%= f.select(:territory_id, Territory.all.map{|i| [i.name, i.id]}) %></td>
       </tr>
       <tr>
-        <td>Leads Per Hour:</td>
-        <td><%= f.text_field(:leadsperhour) %></td>
+        <td>Marketing Manager:</td>
+        <td><%= f.select(:marketing_manager_id, MarketingManager.all.map{|i| [i.first_name, i.id]}) %></td>
       </tr>
     </table>
     <div class="form-buttons">

@@ -11,6 +11,7 @@ class IspShiftsController < ApplicationController
   def show
     @isp_shift = IspShift.find(params[:id])
     @isp_shift_hours_in_store = (@isp_shift.time_out-@isp_shift.time_in)/3600
+    @isp_shift_store = Store.find(@isp_shift.store_id).name
   end
 
   def new
@@ -55,6 +56,6 @@ class IspShiftsController < ApplicationController
   private
 
   def isp_shift_params
-    params.require(:isp_shift).permit(:in_store_promoter_id, :time_in, :time_out, :date, :store_number, :prospects_approached, :presentations_given, :leads )
+    params.require(:isp_shift).permit(:in_store_promoter_id, :time_in, :time_out, :date, :store_id, :prospects_approached, :presentations_given, :leads)
   end
 end

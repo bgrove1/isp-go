@@ -4,9 +4,11 @@
   <h2>Admin Menu</h2>
   <div class="identity">Logged in as: <%= @username %></div>
   <ul>
-    <li><%= link_to("Manage Subjects", subjects_path) %></li>
-    <li><%= link_to("Manage Pages", pages_path) %></li>
-    <li><%= link_to("Manage Sections", sections_path) %></li>
+    <li><%= link_to("Manage In Store Pomoters", in_store_promoters_path) %></li>
+    <li><%= link_to("Manage ISP Shifts", isp_shifts_path) %></li>
+    <li><%= link_to("Manage Stores", stores_path) %></li>
+    <li><%= link_to("Manage Territories", territories_path) %></li>
+    <li><%= link_to("Manage Marketing Managers", marketing_managers_path) %></li>
     <li><%= link_to("Manage Admin Users", admin_users_path) %></li>
     <li><%= link_to("Logout", access_logout_path) %></li>
   </ul>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322203553) do
+ActiveRecord::Schema.define(version: 20170327190545) do
 
   create_table "admin_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "first_name",      limit: 25
@@ -32,10 +32,13 @@ ActiveRecord::Schema.define(version: 20170322203553) do
   create_table "in_store_promoters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "firstname"
     t.string   "lastname"
-    t.string   "territory"
-    t.float    "leadsperhour", limit: 24
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.float    "leads_per_hour",       limit: 24, default: 0.0
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.integer  "territory_id"
+    t.integer  "marketing_manager_id",            default: 1
+    t.index ["marketing_manager_id"], name: "index_in_store_promoters_on_marketing_manager_id", using: :btree
+    t.index ["territory_id"], name: "index_in_store_promoters_on_territory_id", using: :btree
   end
 
   create_table "isp_shifts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -43,14 +46,27 @@ ActiveRecord::Schema.define(version: 20170322203553) do
     t.time     "time_in"
     t.time     "time_out"
     t.date     "date"
-    t.string   "store_number"
+    t.string   "store_id"
     t.integer  "prospects_approached"
     t.integer  "presentations_given"
     t.integer  "leads"
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.float    "leads_per_hour",       limit: 24
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.float    "leads_per_hour",       limit: 24, default: 0.0
     t.index ["in_store_promoter_id"], name: "index_isp_shifts_on_in_store_promoter_id", using: :btree
+    t.index ["store_id"], name: "index_isp_shifts_on_store_id", using: :btree
+  end
+
+  create_table "marketing_managers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "first_name",      limit: 25
+    t.string   "last_name",       limit: 50
+    t.string   "email",                      default: "",  null: false
+    t.string   "username",        limit: 25
+    t.string   "string",          limit: 25
+    t.string   "password_digest"
+    t.float    "leads_per_hour",  limit: 24, default: 0.0
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   create_table "pages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -86,12 +102,36 @@ ActiveRecord::Schema.define(version: 20170322203553) do
     t.index ["page_id"], name: "index_sections_on_page_id", using: :btree
   end
 
+  create_table "stores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "territory_id"
+    t.string   "name"
+    t.string   "manager"
+    t.string   "phone_number"
+    t.float    "leads_per_hour", limit: 24, default: 0.0
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+    t.integer  "store_number"
+  end
+
   create_table "subjects", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "position"
     t.boolean  "visible",    default: false
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+  end
+
+  create_table "territories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "dsm"
+    t.float    "leads_per_hour",         limit: 24, default: 0.0
+    t.integer  "number_of_stores"
+    t.integer  "number_of_hours_worked"
+    t.integer  "number_of_active_isps"
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.integer  "marketing_manager_id",              default: 1
+    t.index ["marketing_manager_id"], name: "index_territories_on_marketing_manager_id", using: :btree
   end
 
 end

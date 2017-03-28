@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple CMS: <%= @page_title || "Admin Area" %></title>
+    <title>ISP GO: <%= @page_title || "Admin Area" %></title>
     <%= stylesheet_link_tag('admin', :media => 'all') %>
   </head>
   <body>
@@ -9,6 +9,16 @@
     <div id="header">
       <h1>ispGO!</h1>
     </div>
+
+    <div class="topnav" id="myTopnav">
+      <%= link_to("ISPs", in_store_promoters_path) %>
+      <%= link_to("ISP Shift", isp_shifts_path) %>
+      <%= link_to("Stores", stores_path) %>
+      <%= link_to("Territories", territories_path) %>
+      <%= link_to("Marketing Managers", marketing_managers_path) %>
+      <%= link_to("Admin Users", admin_users_path) %>
+    </div>
+
     <div id="main">
       <% if !flash[:notice].blank? %>
         <div class="notice">

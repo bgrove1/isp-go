@@ -5,6 +5,9 @@ Rails.application.routes.draw do
 
   get 'show/:permalink', :to => 'public#show'
 
+  resources :marketing_managers
+  resources :territories
+  resources :stores
 
   get 'admin', :to => 'access#menu'
   get 'access/menu'

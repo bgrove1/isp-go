@@ -4,31 +4,31 @@
     <td><%= f.select(:in_store_promoter_id, InStorePromoter.all.map{|i| [i.lastname, i.id]}) %></td>
   </tr>
   <tr>
-    <th>Time In</th>
-    <td><%= f.time_select(:time_in, :minute_step => 15) %></td>
-  </tr>
-  <tr>
-    <th>Time Out</th>
-    <td><%= f.time_select(:time_out, :minute_step => 15) %></td>
+    <th>Store Number</th>
+    <td><%= f.select(:store_id, Store.all.map{|i| [i.store_number, i.id]}) %></td>
   </tr>
   <tr>
     <th>date</th>
-    <td><%= f.date_select(:date ) %></td>
+    <td><%= f.date_select(:date, {order:[:month, :day, :year]}) %></td>
   </tr>
   <tr>
-    <th>Store Number</th>
-    <td><%= f.select(:store_number, ['0730', '0770', '0742']) %></td>
+    <th>Time In</th>
+    <td><%= f.time_select(:time_in, {ampm:true, minute_step: 15}) %></td>
+  </tr>
+  <tr>
+    <th>Time Out</th>
+    <td><%= f.time_select(:time_out, {ampm:true, minute_step: 15}) %></td>
   </tr>
   <tr>
     <th>Prospects Approached</th>
-    <td><%= f.select(:prospects_approached, 1..255) %></td>
+    <td><%= f.select(:prospects_approached, 0..255) %></td>
   </tr>
   <tr>
     <th>Presnetations Given</th>
-    <td><%= f.select(:presentations_given, 1..127) %></td>
+    <td><%= f.select(:presentations_given, 0..127) %></td>
   </tr>
   <tr>
     <th>Leads Obtained</th>
-    <td><%= f.select(:leads, 1..31) %></td>
+    <td><%= f.select(:leads, 0..31) %></td>
   </tr>
 </table>
