@@ -1,0 +1,2 @@
+module MarketingManagersHelper
+end

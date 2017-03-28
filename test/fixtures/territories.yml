@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  dsm: MyString
+  leads_per_hour: 1.5
+  number_of_stores: 1
+  number_of_hours_worked: 1
+  number_of_active_isps: 1
+
+two:
+  name: MyString
+  dsm: MyString
+  leads_per_hour: 1.5
+  number_of_stores: 1
+  number_of_hours_worked: 1
+  number_of_active_isps: 1

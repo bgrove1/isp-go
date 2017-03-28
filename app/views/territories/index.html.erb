@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Territories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Dsm</th>
+      <th>Leads per hour</th>
+      <th>Number of stores</th>
+      <th>Number of active isps</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @territories.each do |territory| %>
+      <tr>
+        <td><%= territory.name %></td>
+        <td><%= territory.dsm %></td>
+        <td><%= territory.calculate_leads_per_hour %></td>
+        <td><%= territory.stores.count %></td>
+        <td><%= territory.in_store_promoters.size %></td>
+        <td><%= link_to 'Show', territory %></td>
+        <td><%= link_to 'Edit', edit_territory_path(territory) %></td>
+        <td><%= link_to 'Destroy', territory, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Territory', new_territory_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @territory.name %>
+</p>
+
+<p>
+  <strong>Dsm:</strong>
+  <%= @territory.dsm %>
+</p>
+
+<p>
+  <strong>Leads per hour:</strong>
+  <%= @territory.calculate_leads_per_hour %>
+</p>
+
+<p>
+  <strong>Number of stores:</strong>
+  <%= @territory.stores.count %>
+</p>
+
+<p>
+  <strong>Number of active isps:</strong>
+  <%= @territory.in_store_promoters.size %>
+</p>
+
+<%= link_to 'Edit', edit_territory_path(@territory) %> |
+<%= link_to 'Back', territories_path %>
