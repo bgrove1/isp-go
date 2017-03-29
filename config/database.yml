@@ -44,6 +44,7 @@ test:
 #
 # You can use this database configuration with:
 #
-#   production:
-#     url: <%= ENV['DATABASE_URL'] %>
+  production:
+    <<: *default
+     url: <%= ENV['mysql2://b757421f771afe:8bd1584b@us-cdbr-iron-east-03.cleardb.net/heroku_0c78f6a4f7765dc?reconnect=true'] %>
 #
