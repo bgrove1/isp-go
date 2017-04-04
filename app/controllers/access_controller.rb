@@ -14,9 +14,14 @@ class AccessController < ApplicationController
 
   def attempt_login
     if params[:username].present? && params[:password].present?
-      found_user = AdminUser.where(:username => params[:username]).first
-      if found_user
-        authorized_user = found_user.authenticate(params[:password])
+
+      found_admin = AdminUser.where(:username => params[:username]).first
+      found_marketing_manager = MarketingManager.where(:username => params[:username]).first
+      if found_admin
+        authorized_user = found_admin.authenticate(params[:password])
+      end
+      if found_marketing_manager
+        authorized_user = found_marketing_manager.authenticate(params[:password])
       end
     end
 

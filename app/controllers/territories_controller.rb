@@ -1,5 +1,7 @@
 class TerritoriesController < ApplicationController
   before_action :set_territory, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_logged_in
+
 
   layout 'admin'
 

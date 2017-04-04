@@ -1,5 +1,6 @@
 class MarketingManagersController < ApplicationController
   before_action :set_marketing_manager, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_logged_in
 
   layout 'admin'
 
@@ -71,6 +72,6 @@ class MarketingManagersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def marketing_manager_params
-      params.require(:marketing_manager).permit(:first_name, :last_name, :username, :password_digest, :leads_per_hour)
+      params.require(:marketing_manager).permit(:first_name, :last_name, :username, :email, :password, :leads_per_hour)
     end
 end

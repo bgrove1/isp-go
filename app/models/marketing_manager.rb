@@ -1,6 +1,6 @@
 class MarketingManager < ApplicationRecord
 
-  
+  has_secure_password
 
   has_many :in_store_promoters
   has_many :territories

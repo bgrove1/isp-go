@@ -1,5 +1,6 @@
 class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
+  before_action :confirm_logged_in
 
   layout 'admin'
 
