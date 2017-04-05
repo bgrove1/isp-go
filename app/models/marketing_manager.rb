@@ -24,4 +24,14 @@ class MarketingManager < ApplicationRecord
     return self.leads_per_hour
   end
 
+  def hours_per_lead
+    self.calculate_leads_per_hour
+    if self.leads_per_hour == 0
+      return ("No leads")
+    else
+      return (1/(self.leads_per_hour)).round(2)
+    end
+  end
+
+
 end

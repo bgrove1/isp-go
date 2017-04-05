@@ -7,7 +7,7 @@
     <tr>
       <th>First name</th>
       <th>Last name</th>
-      <th>Leads per hour</th>
+      <th>Hours per lead</th>
       <th>Current Team Size</th>
       <th colspan="3"></th>
     </tr>
@@ -18,7 +18,7 @@
       <tr>
         <td><%= marketing_manager.first_name %></td>
         <td><%= marketing_manager.last_name %></td>
-        <td class="center"><%= marketing_manager.calculate_leads_per_hour %></td>
+        <td class="center"><%= marketing_manager.hours_per_lead %></td>
         <td class="center"><%= marketing_manager.in_store_promoters.size %></td>
         <td><%= link_to 'Show', marketing_manager %></td>
         <td><%= link_to 'Edit', edit_marketing_manager_path(marketing_manager) %></td>

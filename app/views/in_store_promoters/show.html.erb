@@ -3,36 +3,27 @@
 <%= link_to("<< Back to List", in_store_promoters_path, :class => 'back-link') %>
 
 <div class="in_store_promoters show">
-  <h2>Show ISP</h2>
-
-  <br/>
-  <p>Total number of shifts: <%= @in_store_promoter.isp_shifts.size %> </p>
-  <br/>
-
+  <h2><%= @in_store_promoter.firstname + " "+  @in_store_promoter.lastname %></h2>
 
   <table summary="ISP detail view">
     <tr>
-      <th>First Name</th>
-      <td><%= @in_store_promoter.firstname %></td>
-    </tr>
-    <tr>
-      <th>Last Name</th>
-      <td><%= @in_store_promoter.lastname %></td>
-    </tr>
-    <tr>
-      <th>territory</th>
+      <th>Territory: </th>
       <td><%= Territory.find(@in_store_promoter.territory_id).name %></td>
     </tr>
     <tr>
-      <th>Leads Per Hour</th>
-      <td><%= @in_store_promoter.calculate_leads_per_hour %></td>
+      <th>Hours per lead: </th>
+      <td><%= @in_store_promoter.hours_per_lead %></td>
     </tr>
     <tr>
-      <th>Created</th>
+      <th>Total Number of shifts: </th>
+      <td><%= @in_store_promoter.isp_shifts.size %></td>
+    </tr>
+    <tr>
+      <th>Created: </th>
       <td><%= @in_store_promoter.created_at %></td>
     </tr>
     <tr>
-      <th>Updated</th>
+      <th>Updated: </th>
       <td><%= @in_store_promoter.updated_at %></td>
     </tr>
   </table>

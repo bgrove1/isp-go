@@ -8,7 +8,7 @@
       <th>Name</th>
       <th>Store Number</th>
       <th>Territory</th>
-      <th>Leads per hour</th>
+      <th>Hours per lead</th>
       <th>Manager</th>
       <th>Phone number</th>
       <th colspan="3"></th>
@@ -21,7 +21,7 @@
         <td><%= store.name %></td>
         <td><%= store.store_number %></td>
         <td><%= Territory.find(store.territory_id).name %></td>
-        <td><%= store.calculate_leads_per_hour %></td>
+        <td><%= store.hours_per_lead %></td>
         <td><%= store.manager %></td>
         <td><%= store.phone_number %></td>
         <td><%= link_to 'Show', store %></td>

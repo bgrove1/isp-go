@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20170327190545) do
   create_table "in_store_promoters", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "firstname"
     t.string   "lastname"
-    t.float    "leads_per_hour",       limit: 24, default: 0.0
+    t.float    "leads_per_hour",       limit: 24, default: 0.01
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
     t.integer  "territory_id"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20170327190545) do
     t.integer  "leads"
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
-    t.float    "leads_per_hour",       limit: 24, default: 0.0
+    t.float    "leads_per_hour",       limit: 24, default: 0.01
     t.index ["in_store_promoter_id"], name: "index_isp_shifts_on_in_store_promoter_id", using: :btree
     t.index ["store_id"], name: "index_isp_shifts_on_store_id", using: :btree
   end
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20170327190545) do
     t.string   "username",        limit: 25
     t.string   "string",          limit: 25
     t.string   "password_digest"
-    t.float    "leads_per_hour",  limit: 24, default: 0.0
+    t.float    "leads_per_hour",  limit: 24, default: 0.01
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
   end
@@ -107,7 +107,7 @@ ActiveRecord::Schema.define(version: 20170327190545) do
     t.string   "name"
     t.string   "manager"
     t.string   "phone_number"
-    t.float    "leads_per_hour", limit: 24, default: 0.0
+    t.float    "leads_per_hour", limit: 24, default: 0.01
     t.datetime "created_at",                              null: false
     t.datetime "updated_at",                              null: false
     t.integer  "store_number"
@@ -124,7 +124,7 @@ ActiveRecord::Schema.define(version: 20170327190545) do
   create_table "territories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "dsm"
-    t.float    "leads_per_hour",         limit: 24, default: 0.0
+    t.float    "leads_per_hour",         limit: 24, default: 0.01
     t.integer  "number_of_stores"
     t.integer  "number_of_hours_worked"
     t.integer  "number_of_active_isps"

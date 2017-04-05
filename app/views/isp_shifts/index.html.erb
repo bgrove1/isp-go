@@ -12,7 +12,7 @@
       <th>ISP Name</th>
       <th>Date</th>
       <th>Store</th>
-      <th>Leads Per Hour</th>
+      <th>Hours Per Lead</th>
       <th>Leads Obtained</th>
       <th>Presentations Given</th>
       <th>Prospects Approached</th>
@@ -25,7 +25,7 @@
       <td><%= InStorePromoter.find(isp_shift.in_store_promoter_id).firstname + " " + InStorePromoter.find(isp_shift.in_store_promoter_id).lastname%></td>
       <td><%= isp_shift.date %></td>
       <td><%= Store.find(isp_shift.store_id).name %></td>
-      <td><%= isp_shift.leads_per_hour %></td>
+      <td><%= isp_shift.hours_per_lead %></td>
       <td><%= isp_shift.leads %></td>
       <td><%= isp_shift.presentations_given %></td>
       <td><%= isp_shift.prospects_approached %></td>
