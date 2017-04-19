@@ -55,7 +55,7 @@ class InStorePromotersController < ApplicationController
   private
 
   def in_store_promoter_params
-    params.require(:in_store_promoter).permit(:firstname, :lastname, :territory_id, :marketing_manager_id, :leads_per_hour)
+    params.require(:in_store_promoter).permit(:firstname, :lastname, :territory_id, :marketing_manager_id, :leads_per_hour, :active)
   end
 
 end

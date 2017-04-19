@@ -23,6 +23,13 @@
         <td>Marketing Manager:</td>
         <td><%= f.select(:marketing_manager_id, MarketingManager.all.map{|i| [i.first_name, i.id]}) %></td>
       </tr>
+      <tr>
+        <td>Presently Active:</td>
+        <td>
+            <%= f.select(:active, ["yes", "no"]) %>
+
+        </td>
+      </tr>
     </table>
     <div class="form-buttons">
       <%= f.submit("Update ISP") %>
